@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MODA SCHOOL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6f42c1;
+            --secondary-color: #20c997;
+            --accent-color: #fd7e14;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-custom {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            background-color: #e96b00;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(253, 126, 20, 0.3);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 250px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-color);
+        }
+        
+        .stats-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        /* Sección Sobre Nosotros */
+        .about-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .about-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-year {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        /* Botón de contacto flotante */
+        .contact-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(111, 66, 193, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: none;
+        }
+        
+        .contact-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(111, 66, 193, 0.4);
+        }
+        
+        .contact-fab:active {
+            transform: scale(0.95);
+        }
+        
+        /* Modal personalizado para formulario */
+        .contact-modal {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            margin: 5% auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .form-floating .form-control {
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .form-floating .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #adb5bd;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer {
+            background-color: #212529;
+            color: white;
+            padding: 60px 0 30px 0;
+        }
+        
+        .footer h5 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #adb5bd;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Animación de pulso para el botón flotante */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 25px rgba(111, 66, 193, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(111, 66, 193, 0.6);
+            }
+            100% {
+                box-shadow: 0 8px 25px rgba(111, 66, 193, 0.3);
+            }
+        }
+        
+        .contact-fab.pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">
+                <i class="fas fa-store me-2"></i>MODA SCHOOL
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galería</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-light me-2">
+                        <i class="fas fa-shopping-cart"></i> Carrito
+                    </button>
+                    <button class="btn btn-light">
+                        <i class="fas fa-user"></i> Cuenta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BODY -->
+    <main>
+        <!-- Sección Hero -->
+        <section id="inicio" class="hero-section">
+            <div class="container">
+                <h1>Bienvenido a Moda School</h1>
+                <p class="lead">Descubre productos increíbles con la mejor calidad y precios</p>
+                <button class="btn btn-custom btn-lg">
+                    <i class="fas fa-shopping-bag me-2"></i>Comprar Ahora
+                </button>
+            </div>
+        </section>
+
+        <!-- Sección Sobre Nosotros -->
+        <section id="sobre-nosotros" class="about-section">
+            <div class="container">
+                <h2 class="section-title">Sobre Nosotros</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4">
+                        <div class="about-content">
+                            <h3 class="mb-4">Nuestra Historia</h3>
+                            <p class="lead mb-4">Moda School nace de la pasión por brindar productos escolares de calidad a precios accesibles para todas las familias de Puerto Varas y la región de Los Lagos.</p>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-year">2020</div>
+                                <h5>Los Inicios</h5>
+                                <p>Comenzamos como un pequeño emprendimiento familiar, identificando la necesidad de uniformes escolares de calidad en nuestra comunidad.</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-year">2022</div>
+                                <h5>Expansión</h5>
+                                <p>Ampliamos nuestro catálogo incluyendo deportivas, chaquetas térmicas y accesorios escolares, llegando a 15 colegios asociados.</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-year">2025</div>
+                                <h5>Presente</h5>
+                                <p>Hoy somos referente en la región, con más de 1000 clientes satisfechos y un compromiso firme con la calidad y el servicio.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 mb-4">
+                        <div class="about-content">
+                            <h3 class="mb-4">Nuestra Misión</h3>
+                            <div class="row mb-4">
+                                <div class="col-md-6 text-center mb-3">
+                                    <i class="fas fa-heart text-primary mb-3" style="font-size: 3rem;"></i>
+                                    <h5>Calidad</h5>
+                                    <p>Productos duraderos y cómodos para el día a día escolar</p>
+                                </div>
+                                <div class="col-md-6 text-center mb-3">
+                                    <i class="fas fa-dollar-sign text-success mb-3" style="font-size: 3rem;"></i>
+                                    <h5>Precio Justo</h5>
+                                    <p>Accesibilidad para todas las familias durante todo el año</p>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mb-3">Nuestros Valores</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i><strong>Compromiso:</strong> Con la educación y el bienestar estudiantil</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i><strong>Responsabilidad:</strong> Productos eco-amigables y sostenibles</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i><strong>Cercanía:</strong> Atención personalizada y soporte continuo</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i><strong>Innovación:</strong> Adaptándonos a las nuevas necesidades educativas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Productos -->
+        <section id="productos" class="py-5">
+            <div class="container">
+                <h2 class="section-title">Más Vendidos</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Chaquetas</h5>
+                                <p class="card-text">Chaquetas térmicas. Excelente calidad y precio.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h5 text-primary">$48.990</span>
+                                    <button class="btn btn-custom">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Poleras Deportivas</h5>
+                                <p class="card-text">Poleras deportiva de algodón. Perfecto para ejercicio.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h5 text-primary">$14.990</span>
+                                    <button class="btn btn-custom">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Poleras de Piqué</h5>
+                                <p class="card-text">Poleras Piqué Blancas. Nuestro producto estrella.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h5 text-primary">$26.990</span>
+                                    <button class="btn btn-custom">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Galería/Fotos -->
+        <section id="galeria" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title">Galería de Productos</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-img-top bg-primary d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <i class="fas fa-image text-white" style="font-size: 3rem;"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Foto 1</h6>
+                                <p class="card-text small">Descripción de la imagen</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-img-top bg-success d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <i class="fas fa-camera text-white" style="font-size: 3rem;"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Foto 2</h6>
+                                <p class="card-text small">Descripción de la imagen</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-img-top bg-warning d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <i class="fas fa-photo-video text-white" style="font-size: 3rem;"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Foto 3</h6>
+                                <p class="card-text small">Descripción de la imagen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-custom">Ver Más Fotos</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Estadísticas -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <p>Clientes Satisfechos</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <p>Productos Vendidos</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <p>Colegios Asociados</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <p>Soporte Técnico</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Botón de Contacto Flotante -->
+    <button class="contact-fab pulse" id="contactBtn" title="¡Contáctanos!">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- Modal de Formulario de Contacto -->
+    <div class="contact-modal" id="contactModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000;">
+        <div class="contact-form">
+            <button class="close-btn" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="text-center mb-4">
+                <i class="fas fa-envelope text-primary mb-3" style="font-size: 3rem;"></i>
+                <h3 class="text-primary">¡Contáctanos!</h3>
+                <p class="text-muted">Estaremos encantados de ayudarte</p>
+            </div>
+            
+            <form id="contactForm">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+                            <label for="nombre">Nombre completo</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <input type="tel" class="form-control" id="telefono" placeholder="+56 9 1234 5678">
+                            <label for="telefono">Teléfono (opcional)</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <select class="form-select" id="asunto" required>
+                                <option value="">Selecciona...</option>
+                                <option value="consulta">Consulta General</option>
+                                <option value="cotizacion">Cotización</option>
+                                <option value="pedido">Realizar Pedido</option>
+                                <option value="reclamo">Reclamo</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <label for="asunto">Asunto</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="mensaje" placeholder="Escribe tu mensaje aquí..." style="height: 120px" required></textarea>
+                        <label for="mensaje">Mensaje</label>
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-custom btn-lg">
+                        <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" id="cancelBtn">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+            
+            <hr class="my-4">
+            <div class="text-center">
+                <h6 class="text-muted mb-3">O contáctanos directamente:</h6>
+                <div class="row text-center">
+                    <div class="col-4">
+                        <i class="fas fa-phone text-primary mb-2"></i>
+                        <small class="d-block">+569 3731 3913</small>
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-envelope text-primary mb-2"></i>
+                        <small class="d-block">modaschool1509@gmail.com</small>
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-map-marker-alt text-primary mb-2"></i>
+                        <small class="d-block">Puerto Varas</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>Sobre nosotros</h5>
+                    <p>Somos una empresa comprometida con ofrecer los mejores productos escolares y servicios a nuestros clientes, calidad precio de forma accesible por todo el año escolar.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Envío Gratis</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Garantía</a></li>
+                        <li><a href="#">Soporte hasta 21hrs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Psje. Puerto Natales 801</li>
+                        <li><i class="fas fa-phone me-2"></i>+569 3731 3913</li>
+                        <li><i class="fas fa-envelope me-2"></i>modaschool1509@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Moda School spa puerto varas. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small>
+                        <a href="#" class="me-3">Términos de Servicio</a>
+                        <a href="#">Política de Privacidad</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script>
+        // Smooth scrolling para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Actualizar navbar activo al hacer scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animación de contadores
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = counter.innerText;
+                const numericTarget = parseInt(target.replace(/\D/g, ''));
+                const suffix = target.replace(/\d/g, '');
+                
+                let current = 0;
+                const increment = numericTarget / 100;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= numericTarget) {
+                        counter.innerText = numericTarget + suffix;
+                        clearInterval(timer);
+                    } else {
+                        counter.innerText = Math.floor(current) + suffix;
+                    }
+                }, 20);
+            });
+        }
+
+        // Ejecutar animación cuando la sección sea visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('.stats-section'));
+
+        // Funcionalidad del formulario de contacto
+        const contactBtn = document.getElementById('contactBtn');
+        const contactModal = document.getElementById('contactModal');
+        const closeModal = document.getElementById('closeModal');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const contactForm = document.getElementById('contactForm');
+
+        // Abrir modal
+        contactBtn.addEventListener('click', function() {
+            contactModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            // Remover la animación de pulso cuando se abre
+            contactBtn.classList.remove('pulse');
+        });
+
+        // Cerrar modal
+        function closeContactModal() {
+            contactModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            // Restaurar la animación de pulso
+            setTimeout(() => {
+                contactBtn.classList.add('pulse');
+            }, 3000);
+        }
+
+        closeModal.addEventListener('click', closeContactModal);
+        cancelBtn.addEventListener('click', closeContactModal);
+
+        // Cerrar modal al hacer clic fuera
+        contactModal.addEventListener('click', function(e) {
+            if (e.target === contactModal) {
+                closeContactModal();
+            }
+        });
+
+        // Cerrar modal con Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && contactModal.style.display === 'block') {
+                closeContactModal();
+            }
+        });
+
+        // Envío del formulario
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Recopilar datos del formulario
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                telefono: document.getElementById('telefono').value,
+                asunto: document.getElementById('asunto').value,
+                mensaje: document.getElementById('mensaje').value
+            };
+
+            // Simular envío exitoso
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalContent = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>¡Mensaje Enviado!';
+                submitBtn.classList.remove('btn-custom');
+                submitBtn.classList.add('btn-success');
+                
+                setTimeout(() => {
+                    alert('¡Gracias por contactarnos! Te responderemos pronto.');
+                    contactForm.reset();
+                    closeContactModal();
+                    
+                    // Restaurar botón
+                    submitBtn.innerHTML = originalContent;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('btn-success');
+                    submitBtn.classList.add('btn-custom');
+                }, 1500);
+            }, 2000);
+        });
+
+        // Efecto de entrada para las tarjetas de productos
+        const productCards = document.querySelectorAll('.product-card');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        });
+
+        productCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            cardObserver.observe(card);
+        });
+
+        // Mostrar notificación de bienvenida después de 3 segundos
+        setTimeout(() => {
+            if (contactModal.style.display !== 'block') {
+                // Crear notificación temporal
+                const notification = document.createElement('div');
+                notification.innerHTML = `
+                    <div style="position: fixed; bottom: 100px; right: 30px; background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 1500; max-width: 250px; border-left: 4px solid var(--primary-color);">
+                        <small class="text-muted">💬 ¿Necesitas ayuda?</small>
+                        <p class="mb-0" style="font-size: 0.9rem;">¡Haz clic en el botón de contacto!</p>
+                    </div>
+                `;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 4000);
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
