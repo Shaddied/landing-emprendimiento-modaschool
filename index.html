@@ -270,8 +270,9 @@
             animation: pulse 2s infinite;
         }
     </style>
-</head>
-<body>
+    </head>
+
+    <body>
     <!-- HEADER -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -390,55 +391,64 @@
         <section id="productos" class="py-5">
             <div class="container">
                 <h2 class="section-title">Más Vendidos</h2>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card product-card h-100">
-                            <div class="product-image">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card product-card h-100" data-product="chaquetas">
+                               <div class="product-image">
                                 <i class="fas fa-box"></i>
+                               </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Chaquetas</h5>
+                                        <p class="card-text">Chaquetas térmicas de alta calidad. Perfectas para el clima de Puerto Varas.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        <span class="h5 text-primary fw-bold">$48.990</span>
+                                        <button class="btn btn-custom" onclick="addToCart('chaquetas')">
+                                        <i class="fas fa-shopping-cart me-1"></i>
+                                                   Comprar
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Chaquetas</h5>
-                                <p class="card-text">Chaquetas térmicas. Excelente calidad y precio.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="h5 text-primary">$48.990</span>
-                                    <button class="btn btn-custom">Comprar</button>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card product-card h-100" data-product="poleras-deportivas">
+                                <div class="product-image">
+                                <i class="fas fa-tshirt"></i>
+                                </div>
+                                    <div class="card-body">
+                                    <h5 class="card-title">Poleras Deportivas</h5>
+                                    <p class="card-text">Poleras deportivas de algodón premium. Comodidad y estilo para el deporte.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h5 text-primary fw-bold">$14.990</span>
+                                    <button class="btn btn-custom" onclick="addToCart('poleras-deportivas')">
+                                    <i class="fas fa-shopping-cart me-1"></i>
+                                        Comprar
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card product-card h-100">
-                            <div class="product-image">
-                                <i class="fas fa-gift"></i>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Poleras Deportivas</h5>
-                                <p class="card-text">Poleras deportiva de algodón. Perfecto para ejercicio.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="h5 text-primary">$14.990</span>
-                                    <button class="btn btn-custom">Comprar</button>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card product-card h-100" data-product="poleras-pique">
+                    <div class="product-image">
+                        <i class="fas fa-star"></i>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card product-card h-100">
-                            <div class="product-image">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Poleras de Piqué</h5>
-                                <p class="card-text">Poleras Piqué Blancas. Nuestro producto estrella.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="h5 text-primary">$26.990</span>
-                                    <button class="btn btn-custom">Comprar</button>
-                                </div>
-                            </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Poleras de Piqué</h5>
+                        <p class="card-text">Poleras Piqué blancas de calidad superior. Nuestro producto más vendido.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h5 text-primary fw-bold">$26.990</span>
+                            <button class="btn btn-custom" onclick="addToCart('poleras-pique')">
+                                <i class="fas fa-shopping-cart me-1"></i>
+                                Comprar
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+    </section>
 
         <!-- Sección de Galería/Fotos -->
         <section id="galeria" class="py-5 bg-light">
@@ -509,7 +519,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="stat-item">
-                            <div class="stat-number">24/7</div>
+                            <div class="stat-number">24hr</div>
                             <p>Soporte Técnico</p>
                         </div>
                     </div>
@@ -645,7 +655,7 @@
                     <li><a href="#">Envío Gratis</a></li>
                     <li><a href="#">Devoluciones</a></li>
                     <li><a href="#">Garantía</a></li>
-                    <li><a href="#">Soporte hasta 21hrs</a></li>
+                    <li><a href="#">Soporte hasta 24hrs</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 mb-4">
@@ -810,7 +820,7 @@
             // Simular envío exitoso
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalContent = submitBtn.innerHTML;
-            
+
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
             submitBtn.disabled = true;
 
@@ -818,12 +828,12 @@
                 submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>¡Mensaje Enviado!';
                 submitBtn.classList.remove('btn-custom');
                 submitBtn.classList.add('btn-success');
-                
+
                 setTimeout(() => {
                     alert('¡Gracias por contactarnos! Te responderemos pronto.');
                     contactForm.reset();
                     closeContactModal();
-                    
+
                     // Restaurar botón
                     submitBtn.innerHTML = originalContent;
                     submitBtn.disabled = false;
@@ -853,6 +863,35 @@
             cardObserver.observe(card);
         });
 
+        // Función para simular agregar al carrito
+        function addToCart(product) {
+            // Efecto visual del botón
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = '<i class="fas fa-check me-1"></i> ¡Agregado!';
+            btn.classList.add('btn-success');
+            btn.classList.remove('btn-custom');
+
+            // Crear notificación
+            const notification = document.createElement('div');
+            notification.innerHTML = `
+            <div style="position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 1rem 1.5rem; border-radius: 10px; box-shadow: 0 5px 20px rgba(40,167,69,0.3); z-index: 9999; animation: slideInRight 0.3s ease;">
+                <i class="fas fa-check-circle me-2"></i>
+                <strong>Producto agregado al carrito</strong>
+            </div>
+            `;
+            document.body.appendChild(notification);
+
+            // Restaurar botón después de 2 segundos
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-custom');
+                notification.remove();
+            }, 2000);
+        }
+
         // Mostrar notificación de bienvenida después de 3 segundos
         setTimeout(() => {
             if (contactModal.style.display !== 'block') {
@@ -865,12 +904,28 @@
                     </div>
                 `;
                 document.body.appendChild(notification);
-                
+
                 setTimeout(() => {
                     notification.remove();
                 }, 4000);
             }
         }, 3000);
+
+        // Agregar la animación CSS para la notificación
+        const style = document.createElement('style');
+        style.textContent = `
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

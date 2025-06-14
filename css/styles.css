@@ -20,3 +20,125 @@
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
 }
+
+.product-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.product-image {
+    height: 250px;
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--primary-color);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.product-card:hover .product-image::before {
+    left: 100%;
+}
+
+.product-image i {
+    transition: all 0.4s ease;
+    z-index: 2;
+}
+
+.product-card:hover .product-image i {
+    transform: scale(1.2) rotate(5deg);
+    color: var(--accent-color);
+}
+
+.product-card .card-body {
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .card-body {
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+}
+
+.product-card .card-title {
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .card-title {
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.product-card .btn-custom {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover .btn-custom {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(253, 126, 20, 0.4);
+}
+
+/* Efecto de brillo en el precio */
+.product-card .text-primary {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.product-card:hover .text-primary {
+    color: var(--accent-color) !important;
+    text-shadow: 0 0 10px rgba(253, 126, 20, 0.3);
+    transform: scale(1.1);
+}
+
+/* Animación de entrada escalonada */
+.product-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 0.6s ease forwards;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de pulso en el botón */
+@keyframes pulse-button {
+    0% { box-shadow: 0 0 0 0 rgba(253, 126, 20, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(253, 126, 20, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(253, 126, 20, 0); }
+}
+
+.product-card:hover .btn-custom {
+    animation: pulse-button 1.5s infinite;
+}
