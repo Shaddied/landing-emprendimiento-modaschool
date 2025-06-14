@@ -274,52 +274,58 @@
 <body>
     <!-- HEADER -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#inicio">
-                <i class="fas fa-store me-2"></i>MODA SCHOOL
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#inicio">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#productos">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#galeria">Galería</a>
-                    </li>
-                </ul>
-                <div class="d-flex">
-                    <button class="btn btn-outline-light me-2">
-                        <i class="fas fa-shopping-cart"></i> Carrito
-                    </button>
-                    <button class="btn btn-light">
-                        <i class="fas fa-user"></i> Cuenta
-                    </button>
-                </div>
+    <div class="container">
+        <a class="navbar-brand" href="#inicio">
+            <img src="img/moda_school_logo.png" alt="Moda School" height="35" class="me-2">
+            MODA SCHOOL
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#inicio">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#productos">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#galeria">Galería</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <button class="btn btn-outline-light me-2">
+                    <img src="img/carrito.png" alt="Carrito" width="35" height="35" class="me-1">
+                    Carrito
+                </button>
+                <button class="btn btn-light">
+                    <i class="fas fa-user"></i> Cuenta
+                </button>
             </div>
         </div>
+    </div>
     </nav>
 
     <!-- BODY -->
     <main>
         <!-- Sección Hero -->
         <section id="inicio" class="hero-section">
-            <div class="container">
-                <h1>Bienvenido a Moda School</h1>
-                <p class="lead">Descubre productos increíbles con la mejor calidad y precios</p>
-                <button class="btn btn-custom btn-lg">
-                    <i class="fas fa-shopping-bag me-2"></i>Comprar Ahora
-                </button>
-            </div>
-        </section>
+    <div class="container">
+        <div class="mb-4">
+            <img src="img/moda_school_logo.png" alt="Moda School Logo" width="150" height="150" class="mb-3">
+        </div>
+        <h1>Bienvenido a Moda School</h1>
+        <p class="lead">Descubre productos increíbles con la mejor calidad y precios</p>
+        <button class="btn btn-custom btn-lg">
+            <img src="img/carrito.png" alt="Comprar" width="40" height="40" class="me-2">
+            Comprar Ahora
+        </button>
+    </div>
+    </section>
 
         <!-- Sección Sobre Nosotros -->
         <section id="sobre-nosotros" class="about-section">
@@ -519,147 +525,157 @@
 
     <!-- Modal de Formulario de Contacto -->
     <div class="contact-modal" id="contactModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000;">
-        <div class="contact-form">
-            <button class="close-btn" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="text-center mb-4">
-                <i class="fas fa-envelope text-primary mb-3" style="font-size: 3rem;"></i>
-                <h3 class="text-primary">¡Contáctanos!</h3>
-                <p class="text-muted">Estaremos encantados de ayudarte</p>
+    <div class="contact-form">
+        <button class="close-btn" id="closeModal">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="text-center mb-4">
+            <img src="img/logomodas.png" alt="Contacto" width="80" height="80" class="mb-3">
+            <h3 class="text-primary">¡Contáctanos!</h3>
+            <p class="text-muted">Estaremos encantados de ayudarte</p>
+        </div>
+        
+        <!-- Resto del formulario se mantiene igual -->
+        <form id="contactForm">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+                        <label for="nombre">Nombre completo</label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
             </div>
             
-            <form id="contactForm">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
-                            <label for="nombre">Nombre completo</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="form-floating">
-                            <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="form-floating">
-                            <input type="tel" class="form-control" id="telefono" placeholder="+56 9 1234 5678">
-                            <label for="telefono">Teléfono (opcional)</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="form-floating">
-                            <select class="form-select" id="asunto" required>
-                                <option value="">Selecciona...</option>
-                                <option value="consulta">Consulta General</option>
-                                <option value="cotizacion">Cotización</option>
-                                <option value="pedido">Realizar Pedido</option>
-                                <option value="reclamo">Reclamo</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                            <label for="asunto">Asunto</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mb-4">
+            <div class="row">
+                <div class="col-md-6 mb-3">
                     <div class="form-floating">
-                        <textarea class="form-control" id="mensaje" placeholder="Escribe tu mensaje aquí..." style="height: 120px" required></textarea>
-                        <label for="mensaje">Mensaje</label>
+                        <input type="tel" class="form-control" id="telefono" placeholder="+56 9 1234 5678">
+                        <label for="telefono">Teléfono (opcional)</label>
                     </div>
                 </div>
-                
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-custom btn-lg">
-                        <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary" id="cancelBtn">
-                        Cancelar
-                    </button>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="asunto" required>
+                            <option value="">Selecciona...</option>
+                            <option value="consulta">Consulta General</option>
+                            <option value="cotizacion">Cotización</option>
+                            <option value="pedido">Realizar Pedido</option>
+                            <option value="reclamo">Reclamo</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <label for="asunto">Asunto</label>
+                    </div>
                 </div>
-            </form>
+            </div>
             
-            <hr class="my-4">
-            <div class="text-center">
-                <h6 class="text-muted mb-3">O contáctanos directamente:</h6>
-                <div class="row text-center">
-                    <div class="col-4">
-                        <i class="fas fa-phone text-primary mb-2"></i>
-                        <small class="d-block">+569 3731 3913</small>
-                    </div>
-                    <div class="col-4">
-                        <i class="fas fa-envelope text-primary mb-2"></i>
-                        <small class="d-block">modaschool1509@gmail.com</small>
-                    </div>
-                    <div class="col-4">
-                        <i class="fas fa-map-marker-alt text-primary mb-2"></i>
-                        <small class="d-block">Puerto Varas</small>
-                    </div>
+            <div class="mb-4">
+                <div class="form-floating">
+                    <textarea class="form-control" id="mensaje" placeholder="Escribe tu mensaje aquí..." style="height: 120px" required></textarea>
+                    <label for="mensaje">Mensaje</label>
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-custom btn-lg">
+                    <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                </button>
+                <button type="button" class="btn btn-outline-secondary" id="cancelBtn">
+                    Cancelar
+                </button>
+            </div>
+        </form>
+        
+        <hr class="my-4">
+        <div class="text-center">
+            <h6 class="text-muted mb-3">O contáctanos directamente:</h6>
+            <div class="row text-center">
+                <div class="col-4">
+                    <i class="fas fa-phone text-primary mb-2"></i>
+                    <small class="d-block">+569 3731 3913</small>
+                </div>
+                <div class="col-4">
+                    <img src="assets/icons/email.png" alt="Email" width="20" height="20" class="mb-2">
+                    <small class="d-block">modaschool1509@gmail.com</small>
+                </div>
+                <div class="col-4">
+                    <img src="assets/icons/logo-casa.png" alt="Ubicación" width="20" height="20" class="mb-2">
+                    <small class="d-block">Puerto Varas</small>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h5>Sobre nosotros</h5>
-                    <p>Somos una empresa comprometida con ofrecer los mejores productos escolares y servicios a nuestros clientes, calidad precio de forma accesible por todo el año escolar.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="img/logomodas.png" alt="Moda School" height="40" class="me-3">
+                    <h5 class="mb-0">Moda School</h5>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Enlaces</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                        <li><a href="#productos">Productos</a></li>
-                        <li><a href="#galeria">Galería</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Servicios</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Envío Gratis</a></li>
-                        <li><a href="#">Devoluciones</a></li>
-                        <li><a href="#">Garantía</a></li>
-                        <li><a href="#">Soporte hasta 21hrs</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Contacto</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt me-2"></i>Psje. Puerto Natales 801</li>
-                        <li><i class="fas fa-phone me-2"></i>+569 3731 3913</li>
-                        <li><i class="fas fa-envelope me-2"></i>modaschool1509@gmail.com</li>
-                    </ul>
+                <p>Somos una empresa comprometida con ofrecer los mejores productos escolares y servicios a nuestros clientes, calidad precio de forma accesible por todo el año escolar.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-            <hr class="my-4">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 Moda School spa puerto varas. Todos los derechos reservados.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <small>
-                        <a href="#" class="me-3">Términos de Servicio</a>
-                        <a href="#">Política de Privacidad</a>
-                    </small>
-                </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5>Enlaces</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5>Servicios</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Envío Gratis</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Garantía</a></li>
+                    <li><a href="#">Soporte hasta 21hrs</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5>Contacto</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <img src="img/ubicacion_modas.png" alt="Ubicación" width="40" height="40" class="me-2">
+                        Psje. Puerto Natales 801
+                    </li>
+                    <li><i class="fas fa-phone me-2"></i>+569 3731 3913</li>
+                    <li>
+                        <img src="img/contacto.png" alt="Email" width="40" height="40" class="me-2">
+                        modaschool1509@gmail.com
+                    </li>
+                </ul>
             </div>
         </div>
+        <hr class="my-4">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="mb-0">&copy; 2025 Moda School spa puerto varas. Todos los derechos reservados.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <small>
+                    <a href="#" class="me-3">Términos de Servicio</a>
+                    <a href="#">Política de Privacidad</a>
+                </small>
+            </div>
+        </div>
+    </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

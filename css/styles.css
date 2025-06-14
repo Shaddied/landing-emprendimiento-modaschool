@@ -1,0 +1,22 @@
+/* Estilos para iconos personalizados */
+.navbar-brand img {
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+}
+
+.product-image img {
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.hero-section img {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
